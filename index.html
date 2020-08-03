@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPS</title>
+    </head>    
+
+    <body>
+        <script>
+            var moves = ["rock", "paper", "scissors"];
+            var computerPlay = function() {
+                var choice = Math.floor(Math.random() * moves.length);
+                return choice;
+            }
+
+            var playRound = function(playerSelection, computerSelection) {
+                player = moves.indexOf(playerSelection);
+            
+                
+                if ((player === 0 && computerSelection === 2) || (player === 2 && computerSelection === 1) || (player === 1 && computerSelection === 0)) {
+                    return "You Win! " + playerSelection + " beats " + moves[computerSelection] + ".";
+                } else if (player === computerSelection) {
+                    return "Draw! " + playerSelection;
+                } else {
+                    return "You Lose! " + moves[computerSelection] + " beats " + playerSelection + ".";
+                }
+            }
+    
+
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    var playerSelect = prompt("Choose rock, paper, or scissors.");
+                    var compSelect = computerPlay();
+                    console.log(playRound(playerSelect, compSelect));
+                }
+            }
+
+            game();
+        </script>
+    </body>
+</html>
